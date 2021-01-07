@@ -3,8 +3,7 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
-<head>
-  <link href='https://fonts.googleapis.com/css?family=Denk One' rel='stylesheet'>
+
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
@@ -506,4 +505,4 @@ fieldset[disabled] .btn-success.active {
   opacity: 0;
   display: none;
 }
-</head>
+
