@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Denk+One);
+
 /*!
  * Start Bootstrap - Freelancer v3.3.7+1 (http://startbootstrap.com/template-overviews/freelancer)
  * Copyright 2013-2016 Start Bootstrap
@@ -82,7 +84,7 @@ header img {
 }
 header .intro-text .name {
   display: block;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Denk One', sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 2em;
