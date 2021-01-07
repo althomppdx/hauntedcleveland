@@ -3,7 +3,6 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
-
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
@@ -81,10 +80,9 @@ header img {
   display: block;
   margin: 0 auto 20px;
 }
-
 header .intro-text .name {
   display: block;
-  font-family: 'Denk One';
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 2em;
@@ -505,4 +503,3 @@ fieldset[disabled] .btn-success.active {
   opacity: 0;
   display: none;
 }
-
