@@ -508,7 +508,7 @@ fieldset[disabled] .btn-success.active {
 }
 .contact-section .card {
   border: 0;
-  border-bottom: 0.25rem solid #64a19d;
+  border-bottom: 0.25rem solid #cad0c6;
 }
 .contact-section .card h4 {
   font-size: 0.8rem;
@@ -517,7 +517,7 @@ fieldset[disabled] .btn-success.active {
   letter-spacing: 0.15rem;
 }
 .contact-section .card hr {
-  border-color: #64a19d;
+  border-color: #cad0c6;
   border-width: 0.25rem;
   width: 3rem;
 }
@@ -531,11 +531,11 @@ fieldset[disabled] .btn-success.active {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 100%;
   line-height: 3rem;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(44,62,80, 0.3);
 }
 .contact-section .social a:hover {
   color: rgba(255, 255, 255, 0.5);
 }
 .contact-section .social a:active {
-  color: #fff;
+  color: #cad0c6;
 }
