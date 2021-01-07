@@ -80,9 +80,11 @@ header img {
   display: block;
   margin: 0 auto 20px;
 }
+
+<link href='https://fonts.googleapis.com/css?family=Denk One' rel='stylesheet'>
 header .intro-text .name {
   display: block;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+ font-family: 'Denk One';
   text-transform: uppercase;
   font-weight: 700;
   font-size: 2em;
