@@ -503,3 +503,10 @@ fieldset[disabled] .btn-success.active {
   opacity: 0;
   display: none;
 }
+
+figcaption {
+  color: #cad0c6;
+  font-style: italic;
+  padding: 2px;
+  text-align: center;
+}
