@@ -510,3 +510,7 @@ figcaption {
   padding: 2px;
   text-align: center;
 }
+
+#contact .card:hover i,#contact .card:hover h4{
+	color: #cad0c6;
+}
