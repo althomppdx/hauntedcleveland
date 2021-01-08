@@ -100,6 +100,29 @@
     center: [41.49911844385545, -81.6948844057542],
     zoom: 12
   });
+   
+    var myLayer = L.mapbox.featureLayer().addTo(mapTooltipsJS);
+var geojson = [
+<!--this is where youll copy and paste into-->
+    {
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [-84.460538, 42.720761] 
+    },
+    properties: {
+      title: '<font color="red"></font>',
+      description: 
+      icon: {
+        iconUrl: '',
+        iconSize: [30, 30], // size of the icon
+        iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
+        popupAnchor: [0, -25], // point from which the popup should open relative to the iconAnchor
+        className: 'dot'
+      }
+    }
+  },   
+    ];
 </script>
 
 <!--var content = '<h2>' + feature.properties.title + '</h2><img src="' + feature.properties.image + '" alt="">';-->
