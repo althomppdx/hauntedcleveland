@@ -95,30 +95,8 @@
   mapboxgl.accessToken = 'pk.eyJ1Ijoicm9kcmk2OTEiLCJhIjoiY2szMGsyYTczMHRqbjNtczF0bDg2Zm83YSJ9.91pXtlBbZG8dWo9-hnz04w';
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [41.49911844385545, -81.6948844057542],
-    zoon: 12
+    style: 'mapbox://styles/mapbox/streets-v11'
   });
-  map.on('load', function () {
-map.addSource('places', {
-'type': 'geojson',
-'data': {
-'type': 'FeatureCollection',
-'features': [
-{
-'type': 'Feature',
-'properties': {
-'description':
-'<strong>Variety Theatre</strong><p><a href="https://lh3.googleusercontent.com/proxy/Z0nhC0ixxYzvbzS0JyRW-qepJvOIOwimAg46IE3m4kLn-m6ymYSIY27V4yp40t_OKE7grBxYB4AGxNWwFLwHANBUv0CBk9HRLqE5ozuA3tO62FN-Xw
-" target="_blank" title="Opens in a new window">Variety Theatre</a>The Variety Theatre was built in 1927 and was long a neighborhood fixture (westparkhistory.com). The venue changed hands several times before closing in the 1980s and falling into disrepair. It is now supported by a community nonprofit organization that aims to restore the theatre. The caretaker and one of the founders of the nonprofit has reported at least 19 distinct ghosts associated with the building. He reports being spoken often to when alone in the building and seeing several different ghosts regularly.
-</p>',
-'icon': 'theatre'
-},
-'geometry': {
-'type': 'Point',
-'coordinates': [41.461457023755564, -81.77015731614846]
-}
-}
 </script>
 
 <!--var content = '<h2>' + feature.properties.title + '</h2><img src="' + feature.properties.image + '" alt="">';-->
