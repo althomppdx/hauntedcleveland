@@ -40,7 +40,7 @@
   #map { position:absolute; top:0; bottom:0; width:100%; }
 </style>
 </head>
-<body>
+
     <body id="page-top" class="index">
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -89,8 +89,10 @@
             </div>
         </div>
     </header>-->
-<div class="container">
-<div id='map'></div>
+<div id="container"> 
+    <div id="main-content">
+        
+<div id='map-tooltips-js' class='map'> </div>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1Ijoicm9kcmk2OTEiLCJhIjoiY2szMGsyYTczMHRqbjNtczF0bDg2Zm83YSJ9.91pXtlBbZG8dWo9-hnz04w';
 var map = L.mapbox.map('map')
@@ -396,7 +398,7 @@ properties: {
 },
     ];
 </script>
-        </div>
+        </bodyy67u>
 <!--var content = '<h2>' + feature.properties.title + '</h2><img src="' + feature.properties.image + '" alt="">';-->
 
 
