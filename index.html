@@ -76,13 +76,16 @@
         <!-- /.container-fluid -->
     </nav>
 
-<div id='map' style='width: 400px; height: 300px;'></div>
+<div id='map' style='width:500 px; height: 500 px'></div>
 <script>
-mapboxgl.accessToken = 'pk.eyJ1Ijoicm9kcmk2OTEiLCJhIjoiY2szMGsyYTczMHRqbjNtczF0bDg2Zm83YSJ9.91pXtlBbZG8dWo9-hnz04w';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11'
-});
+  mapboxgl.accessToken = 'pk.eyJ1Ijoicm9kcmk2OTEiLCJhIjoiY2szMGsyYTczMHRqbjNtczF0bDg2Zm83YSJ9.91pXtlBbZG8dWo9-hnz04w'
+';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [41.49911844385545, -81.6948844057542],
+    zoom: 12
+  });
 </script>
 
  
