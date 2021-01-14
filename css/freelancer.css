@@ -533,3 +533,12 @@ a:hover {
 i.red {
     color: #bc0213;
 }
+
+.marker {
+  background-image: url("../img/ghost.png");
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
