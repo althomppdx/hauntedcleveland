@@ -119,6 +119,7 @@ map.addSource('places', {
 ]
 }
 });
+	 
 // Add a layer showing the places.
 map.addLayer({
 'id': 'places',
@@ -130,6 +131,15 @@ map.addLayer({
 }
 });
 
+// Set a custom icon on each marker based on feature properties.
+myLayer.on('layeradd', function(e) {
+ var marker = e.layer,
+   feature = marker.feature;
+ marker.setIcon(L.icon(feature.properties.icon));
+ var content = '<h2>' + feature.properties.title + '</h2>' + feature.properties.description + '';
+ marker.bindPopup(content);
+});	    
+	    
 // When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
 map.on('click', 'places', function (e) {
