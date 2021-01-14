@@ -101,7 +101,7 @@ map.addSource('places', {
 'type': 'Feature',
 'properties': {
 'description': '<strong>Variety Theatre</strong><p><a href="http://westparkhistory.com/Articles/Variety/variety.htm#:~:text=The%20Variety%20Theatre%2C%20at%2011815,you%20believe%20the%20press%20releases">Variety Theater</a> was built in 1927 and was long a neighborhood fixture. The venue changed hands several times before closing in the 1980s and falling into disrepair. It is now supported by a community nonprofit organization that aims to restore the theatre. The caretaker and one of the founders of the nonprofit has reported at least 19 distinct ghosts associated with the building. He reports being spoken often to when alone in the building and seeing several different ghosts regularly</p>',
-'icon': 'marker'
+'icon': 'music'
 },
 'geometry': {
 'type': 'Point',
@@ -161,7 +161,7 @@ map.addSource('places', {
 {
 'type': 'Feature',
 'properties': {
-'description': "<strong>Squire's Castle</strong>",
+'description': '<strong>Squire's Castle</strong>',
 'icon': 'marker'
 },
 'geometry': {
@@ -169,83 +169,6 @@ map.addSource('places', {
 'coordinates': [-81.41927780265219, 41.580246892473404]
 }
 },
-
-{
-'type': 'Feature',
-'properties': {
-'description': "<strong>House of Wills</strong>",
-'icon': 'marker'
-},
-'geometry': {
-'type': 'Point',
-'coordinates': [-81.57796204498484, 41.449964503588625]
-}
-},
-
-
-{
-'type': 'Feature',
-'properties': {
-'description': "<strong>Gore Orphanage Road</strong>",
-'icon': 'marker'
-},
-'geometry': {
-'type': 'Point',
-'coordinates': [-82.32887788366754, 41.36531649004299]
-}
-},
-
-
-{
-'type': 'Feature',
-'properties': {
-'description': "<strong>Gray's Armory</strong>",
-'icon': 'marker'
-},
-'geometry': {
-'type': 'Point',
-'coordinates': [-81.68165864683509, 41.498990317313854]
-}
-},
-
-
-{
-'type': 'Feature',
-'properties': {
-'description': "<strong>Drury Mansion</strong>",
-'icon': 'marker'
-},
-'geometry': {
-'type': 'Point',
-'coordinates': [-81.6280213219388, 41.51036931683047]
-}
-},
-
-
-{
-'type': 'Feature',
-'properties': {
-'description': "<strong>Soldiers and Sailors Monument</strong>",
-'icon': 'marker'
-},
-'geometry': {
-'type': 'Point',
-'coordinates': [-81.69285541614705, 41.499689853206704]
-}
-},
-
-{
-'type': 'Feature',
-'properties': {
-'description': "<strong>Renaissance Cleveland Hotel</strong>",
-'icon': 'marker'
-},
-'geometry': {
-'type': 'Point',
-'coordinates': [-81.69445024498309, 41.49884361110574]
-}
-},
-
 
 {
 'type': 'Feature',
@@ -300,6 +223,16 @@ map.addSource('places', {
 }
 	
 ]
+}
+});
+// Add a layer showing the places.
+map.addLayer({
+'id': 'places',
+'type': 'symbol',
+'source': 'places',
+'layout': {
+'icon-image': '{icon}-15',
+'icon-allow-overlap': true
 }
 });
 
