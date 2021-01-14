@@ -99,7 +99,7 @@
     center: [-81.6948844057542, 41.49911844385545],
     zoom: 12
   });
-    var geojson = {
+var geojson = {
   type: 'FeatureCollection',
   features: [{
     type: 'Feature',
@@ -109,39 +109,34 @@
     },
     properties: {
       title: 'Variety Theatre',
-      description: '<a href="http://westparkhistory.com/Articles/Variety/variety.htm#:~:text=The%20Variety%20Theatre%2C%20at%2011815,you%20believe%20the%20press%20releases">Variety Theater</a> was built in 1927 and was long a neighborhood fixture. The venue changed hands several times before closing in the 1980s and falling into disrepair. It is now supported by a community nonprofit organization that aims to restore the theatre. The caretaker and one of the founders of the nonprofit has reported at least 19 distinct ghosts associated with the building. He reports being spoken often to when alone in the building and seeing several different ghosts regularly'
+      description: '<p><a href="http://westparkhistory.com/Articles/Variety/variety.htm#:~:text=The%20Variety%20Theatre%2C%20at%2011815,you%20believe%20the%20press%20releases">Variety Theater</a> was built in 1927 and was long a neighborhood fixture. The venue changed hands several times before closing in the 1980s and falling into disrepair. It is now supported by a community nonprofit organization that aims to restore the theatre. The caretaker and one of the founders of the nonprofit has reported at least 19 distinct ghosts associated with the building. He reports being spoken often to when alone in the building and seeing several different ghosts regularly</p>''
     }
   },
-}]
+  {
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [-81.71648995847553, 41.485964094637566]
+    },
+    properties: {
+      title: ‘Franklin Castle',
+      description: 'San Francisco, California'
+    }
+  }]
 };
-// When a click event occurs on a feature in the places layer, open a popup at the
-// location of the feature, with description HTML from its properties.
-map.on('click', 'places', function (e) {
-var coordinates = e.features[0].geometry.coordinates.slice();
-var description = e.features[0].properties.description;
+// add markers to map
+geojson.features.forEach(function(marker) {
 
-// Ensure that if the map is zoomed out such that multiple
-// copies of the feature are visible, the popup appears
-// over the copy being pointed to.
-while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-}
+  // create a HTML element for each feature
+  var el = document.createElement('div');
+  el.className = 'marker';
 
-new mapboxgl.Popup()
-.setLngLat(coordinates)
-.setHTML(description)
-.addTo(map);
-});
-
-// Change the cursor to a pointer when the mouse is over the places layer.
-map.on('mouseenter', 'places', function () {
-map.getCanvas().style.cursor = 'pointer';
-});
-
-// Change it back to a pointer when it leaves.
-map.on('mouseleave', 'places', function () {
-map.getCanvas().style.cursor = '';
-});
+  // make a marker for each feature and add to the map
+  new mapboxgl.Marker(el)
+    .setLngLat(marker.geometry.coordinates)
+	  .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+    .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+    .addTo(map);
 });
 </script>
 
