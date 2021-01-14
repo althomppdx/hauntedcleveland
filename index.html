@@ -95,16 +95,8 @@ padding: 0;
 <div id='map' style='width:500 px; height: 500 px'></div>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoicm9kcmk2OTEiLCJhIjoiY2szMGsyYTczMHRqbjNtczF0bDg2Zm83YSJ9.91pXtlBbZG8dWo9-hnz04w' ;
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/dark-v10',
-    center: [-81.6948844057542, 41.49911844385545],
-    zoom: 12
-  });
-    map.on('load', function () {
-map.addSource('places', {
-'type': 'geojson',
-'data': {
+  
+   var geojson = {
 'type': 'FeatureCollection',
 'features': [
 {
@@ -127,10 +119,6 @@ map.addLayer({
 'id': 'places',
 'type': 'symbol',
 'source': 'places',
-'layout': {
-'icon-image': '{icon}-15',
-'icon-allow-overlap': true
-}
 });
 
 // When a click event occurs on a feature in the places layer, open a popup at the
@@ -163,6 +151,14 @@ map.getCanvas().style.cursor = '';
 });
 });
 
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/dark-v10',
+    center: [-81.6948844057542, 41.49911844385545],
+    zoom: 12
+  });
+	
+	
 // add markers to map
 geojson.features.forEach(function (marker) {
 // create a DOM element for the marker
