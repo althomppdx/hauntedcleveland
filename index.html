@@ -46,6 +46,15 @@
 max-width: 400px;
 font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
+	
+.marker {
+display: block;
+border: none;
+border-radius: 50%;
+cursor: pointer;
+padding: 0;
+}	
+	
 </style>
 
     <body id="page-top" class="index">
@@ -103,6 +112,7 @@ map.addSource('places', {
 'properties': {
 'description':
 '<strong>Variety Theatre</strong><p><a target="_blank" href="http://westparkhistory.com/Articles/Variety/variety.htm#:~:text=The%20Variety%20Theatre%2C%20at%2011815,you%20believe%20the%20press%20releases">Variety Theater</a> was built in 1927 and was long a neighborhood fixture. The venue changed hands several times before closing in the 1980s and falling into disrepair. It is now supported by a community nonprofit organization that aims to restore the theatre. The caretaker and one of the founders of the nonprofit has reported at least 19 distinct ghosts associated with the building. He reports being spoken often to when alone in the building and seeing several different ghosts regularly</p>',
+'iconSize': [60, 60]
 },
 'geometry': {
 'type': 'Point',
@@ -152,19 +162,31 @@ map.on('mouseleave', 'places', function () {
 map.getCanvas().style.cursor = '';
 });
 });
-	
+
 // add markers to map
-geojson.features.forEach(function(marker) {
-
-  // create a HTML element for each feature
-  var el = document.createElement('div');
-  el.className = 'marker';
-
-  // make a marker for each feature and add to the map
-  new mapboxgl.Marker(el)
-    .setLngLat(marker.geometry.coordinates)
-    .addTo(map);
+geojson.features.forEach(function (marker) {
+// create a DOM element for the marker
+var el = document.createElement('div');
+el.className = 'marker';
+el.style.backgroundImage =
+'url(../img/ghost.png' +
+marker.properties.iconSize.join('/') +
+'/)';
+el.style.width = marker.properties.iconSize[0] + 'px';
+el.style.height = marker.properties.iconSize[1] + 'px';
+ 
+el.addEventListener('click', function () {
+window.alert(marker.properties.message);
 });
+ 
+// add marker to map
+new mapboxgl.Marker(el)
+.setLngLat(marker.geometry.coordinates)
+.addTo(map);
+});	
+	
+	
+	
 	
 </script>
 
