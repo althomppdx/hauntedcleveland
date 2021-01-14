@@ -46,15 +46,6 @@
 max-width: 400px;
 font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
-	
-.marker {
-display: block;
-border: none;
-border-radius: 50%;
-cursor: pointer;
-padding: 0;
-}	
-	
 </style>
 
     <body id="page-top" class="index">
@@ -95,8 +86,16 @@ padding: 0;
 <div id='map' style='width:500 px; height: 500 px'></div>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoicm9kcmk2OTEiLCJhIjoiY2szMGsyYTczMHRqbjNtczF0bDg2Zm83YSJ9.91pXtlBbZG8dWo9-hnz04w' ;
-  
-   var geojson = {
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/dark-v10',
+    center: [-81.6948844057542, 41.49911844385545],
+    zoom: 12
+  });
+    map.on('load', function () {
+map.addSource('places', {
+'type': 'geojson',
+'data': {
 'type': 'FeatureCollection',
 'features': [
 {
@@ -104,8 +103,8 @@ padding: 0;
 'properties': {
 'description':
 '<strong>Variety Theatre</strong><p><a target="_blank" href="http://westparkhistory.com/Articles/Variety/variety.htm#:~:text=The%20Variety%20Theatre%2C%20at%2011815,you%20believe%20the%20press%20releases">Variety Theater</a> was built in 1927 and was long a neighborhood fixture. The venue changed hands several times before closing in the 1980s and falling into disrepair. It is now supported by a community nonprofit organization that aims to restore the theatre. The caretaker and one of the founders of the nonprofit has reported at least 19 distinct ghosts associated with the building. He reports being spoken often to when alone in the building and seeing several different ghosts regularly</p>',
-'iconSize': [60, 60]
 },
+	'icon': 'music'
 'geometry': {
 'type': 'Point',
 'coordinates': [-81.77015731614846, 41.461457023755564]
@@ -119,6 +118,10 @@ map.addLayer({
 'id': 'places',
 'type': 'symbol',
 'source': 'places',
+'layout': {
+'icon-image': '{icon}-15',
+'icon-allow-overlap': true
+}
 });
 
 // When a click event occurs on a feature in the places layer, open a popup at the
@@ -150,38 +153,6 @@ map.on('mouseleave', 'places', function () {
 map.getCanvas().style.cursor = '';
 });
 });
-
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/dark-v10',
-    center: [-81.6948844057542, 41.49911844385545],
-    zoom: 12
-  });
-	
-	
-// add markers to map
-geojson.features.forEach(function (marker) {
-// create a DOM element for the marker
-var el = document.createElement('div');
-el.className = 'marker';
-el.style.backgroundImage =
-'url(../img/ghost.png' +
-marker.properties.iconSize.join('/') +
-'/)';
-el.style.width = marker.properties.iconSize[0] + 'px';
-el.style.height = marker.properties.iconSize[1] + 'px';
- 
-el.addEventListener('click', function () {
-window.alert(marker.properties.message);
-});
- 
-// add marker to map
-new mapboxgl.Marker(el)
-.setLngLat(marker.geometry.coordinates)
-.addTo(map);
-});	
-	
-	
 	
 	
 </script>
