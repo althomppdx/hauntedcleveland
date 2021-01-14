@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-	
 <head>
-	
-	<meta charset="utf-8"/>
+<meta charset="utf-8"/>
 
-    <!-- Bootstrap Core CSS -->
+<!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme CSS -->
@@ -25,13 +23,16 @@
 <!-- Initiates Modal and Uses cookies for Dont Show Again Checkbox -->
 
 
+
+
+
     <title>Haunted Cleveland</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css" rel="stylesheet" />
 <style>
@@ -93,10 +94,9 @@ font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   });
     map.on('load', function () {
 map.addSource('places', {
-
+'type': 'geojson',
 'data': {
 'type': 'FeatureCollection',
-	
 'features': [
 {
 'type': 'Feature',
@@ -111,7 +111,8 @@ map.addSource('places', {
 }
 }
 ]
-f});
+}
+});
 // Add a layer showing the places.
 map.addLayer({
 'id': 'places',
