@@ -113,6 +113,29 @@ map.addSource('places', {
 ]
 }
 });
+map.on('load', function () {
+map.addSource('places', {
+'type': 'geojson',
+'data': {
+'type': 'FeatureCollection',
+'features': [
+{
+'type': 'Feature',
+'properties': {
+'description':
+'<strong>Franklin Castle</strong><p><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Hannes_Tiedemann_House_Cleveland_Ohio.jpg/800px-Hannes_Tiedemann_House_Cleveland_Ohio.jpg">"Franklin Castle is a Victorian stone house located in Cleveland''s Ohio City neighborhood. The building has four stories and more than twenty rooms and eighty windows. It is reported to be the most haunted house in Ohio. The house was built in 1881-1883 by the famed architectural firm of Cudell & Richardson for Hannes Tiedemann, a prosperous German immigrant.
+On January 15, 1891, Tiedemann''s fifteen-year-old daughter Emma succumbed to diabetes. The house saw its second death not long afterwards when Tiedemann''s elderly mother, Wiebeka, died. During the next three years the Tiedemanns would bury three more children, giving rise to speculation that there was more to the deaths than met the eye. For more information, visit https://clevelandhistorical.org/items/show/531"
+</p>',
+'icon': 'music'
+},
+'geometry': {
+'type': 'Point',
+'coordinates': [-81.71648995847553, 41.485964094637566]
+}
+}
+]
+}
+});
 // Add a layer showing the places.
 map.addLayer({
 'id': 'places',
@@ -123,31 +146,31 @@ map.addLayer({
 'icon-allow-overlap': true
 }
 });
- 
+
 // When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
 map.on('click', 'places', function (e) {
 var coordinates = e.features[0].geometry.coordinates.slice();
 var description = e.features[0].properties.description;
- 
+
 // Ensure that if the map is zoomed out such that multiple
 // copies of the feature are visible, the popup appears
 // over the copy being pointed to.
 while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 }
- 
+
 new mapboxgl.Popup()
 .setLngLat(coordinates)
 .setHTML(description)
 .addTo(map);
 });
- 
+
 // Change the cursor to a pointer when the mouse is over the places layer.
 map.on('mouseenter', 'places', function () {
 map.getCanvas().style.cursor = 'pointer';
 });
- 
+
 // Change it back to a pointer when it leaves.
 map.on('mouseleave', 'places', function () {
 map.getCanvas().style.cursor = '';
